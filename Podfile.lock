@@ -1,20 +1,24 @@
 PODS:
   - BigInt (4.0.0)
   - QRCodeReader.swift (10.1.0)
+  - Sourcery (0.16.1)
 
 DEPENDENCIES:
   - BigInt (~> 4.0)
   - QRCodeReader.swift (~> 10.1.0)
+  - Sourcery
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BigInt
     - QRCodeReader.swift
+    - Sourcery
 
 SPEC CHECKSUMS:
   BigInt: 2aad1a9942dc932ec8b84290d2c564a3d76f97ab
   QRCodeReader.swift: 373a389fe9a22d513c879a32a6f647c58f4ef572
+  Sourcery: 16779170d35ee204666843b09031f36721a84bcc
 
-PODFILE CHECKSUM: d5ffe6e19467601b22fe08d5f368bee1db167b98
+PODFILE CHECKSUM: b0a28f4d930c01c6b505e0e085a9eabe32a56d31
 
 COCOAPODS: 1.5.2

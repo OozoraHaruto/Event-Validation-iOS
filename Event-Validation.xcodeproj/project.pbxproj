@@ -10,8 +10,13 @@
 		0F5991ED538DEC9197E5BBD3 /* Pods_Event_ValidationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61E6DEA32D7DD4C4A56E6DB2 /* Pods_Event_ValidationTests.framework */; };
 		8C7852E18B87CF156F800340 /* Pods_Event_Validation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79B89D5B6181AE1A8418670F /* Pods_Event_Validation.framework */; };
 		C11DA6A48219D2CEF01572D1 /* Pods_Event_ValidationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4379A59DE11702347C7E5E9B /* Pods_Event_ValidationUITests.framework */; };
+		DF08C81B22A38A71007A70B8 /* AppSecrets.stencil in Resources */ = {isa = PBXBuildFile; fileRef = DF08C81722A38A2D007A70B8 /* AppSecrets.stencil */; };
+		DF08C82022A38A8A007A70B8 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C81D22A38A89007A70B8 /* functions.swift */; };
+		DF08C82122A38A8A007A70B8 /* structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C81E22A38A89007A70B8 /* structs.swift */; };
+		DF08C82222A38A8A007A70B8 /* decryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C81F22A38A89007A70B8 /* decryption.swift */; };
+		DF08C82522A38E4D007A70B8 /* AppSecrets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C82422A38AE5007A70B8 /* AppSecrets.generated.swift */; };
 		DFD3749A22A0D694006392DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD3749922A0D694006392DE /* AppDelegate.swift */; };
-		DFD3749C22A0D694006392DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD3749B22A0D694006392DE /* ViewController.swift */; };
+		DFD3749C22A0D694006392DE /* QRScannerPrepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD3749B22A0D694006392DE /* QRScannerPrepViewController.swift */; };
 		DFD3749F22A0D694006392DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD3749D22A0D694006392DE /* Main.storyboard */; };
 		DFD374A122A0D695006392DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFD374A022A0D695006392DE /* Assets.xcassets */; };
 		DFD374A422A0D695006392DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD374A222A0D695006392DE /* LaunchScreen.storyboard */; };
@@ -45,9 +50,15 @@
 		A0DFB48072BDF0FDC5DC29C8 /* Pods-Event-Validation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event-Validation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Event-Validation/Pods-Event-Validation.debug.xcconfig"; sourceTree = "<group>"; };
 		C5CF33267C2E8A479A172AA7 /* Pods-Event-ValidationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event-ValidationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Event-ValidationTests/Pods-Event-ValidationTests.release.xcconfig"; sourceTree = "<group>"; };
 		C5D2495882ED4C4C454C37E0 /* Pods-Event-ValidationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event-ValidationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Event-ValidationUITests/Pods-Event-ValidationUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DF08C81722A38A2D007A70B8 /* AppSecrets.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AppSecrets.stencil; sourceTree = "<group>"; };
+		DF08C81822A38A2D007A70B8 /* env-vars.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "env-vars.sh"; sourceTree = "<group>"; };
+		DF08C81D22A38A89007A70B8 /* functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
+		DF08C81E22A38A89007A70B8 /* structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = structs.swift; sourceTree = "<group>"; };
+		DF08C81F22A38A89007A70B8 /* decryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = decryption.swift; sourceTree = "<group>"; };
+		DF08C82422A38AE5007A70B8 /* AppSecrets.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSecrets.generated.swift; sourceTree = "<group>"; };
 		DFD3749622A0D694006392DE /* Event-Validation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Event-Validation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFD3749922A0D694006392DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DFD3749B22A0D694006392DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DFD3749B22A0D694006392DE /* QRScannerPrepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerPrepViewController.swift; sourceTree = "<group>"; };
 		DFD3749E22A0D694006392DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DFD374A022A0D695006392DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFD374A322A0D695006392DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -112,9 +123,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DF08C81522A389DE007A70B8 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				DF08C82422A38AE5007A70B8 /* AppSecrets.generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		DF08C81622A389FA007A70B8 /* BuildConfig */ = {
+			isa = PBXGroup;
+			children = (
+				DF08C81722A38A2D007A70B8 /* AppSecrets.stencil */,
+				DF08C81822A38A2D007A70B8 /* env-vars.sh */,
+			);
+			path = BuildConfig;
+			sourceTree = "<group>";
+		};
+		DF08C81C22A38A79007A70B8 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				DF08C81F22A38A89007A70B8 /* decryption.swift */,
+				DF08C81D22A38A89007A70B8 /* functions.swift */,
+				DF08C81E22A38A89007A70B8 /* structs.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		DFD3748D22A0D694006392DE = {
 			isa = PBXGroup;
 			children = (
+				DF08C81522A389DE007A70B8 /* Generated */,
+				DF08C81622A389FA007A70B8 /* BuildConfig */,
 				DFD3749822A0D694006392DE /* Event-Validation */,
 				DFD374AD22A0D695006392DE /* Event-ValidationTests */,
 				DFD374B822A0D695006392DE /* Event-ValidationUITests */,
@@ -137,8 +177,9 @@
 		DFD3749822A0D694006392DE /* Event-Validation */ = {
 			isa = PBXGroup;
 			children = (
+				DF08C81C22A38A79007A70B8 /* Constants */,
 				DFD3749922A0D694006392DE /* AppDelegate.swift */,
-				DFD3749B22A0D694006392DE /* ViewController.swift */,
+				DFD3749B22A0D694006392DE /* QRScannerPrepViewController.swift */,
 				DFD3749D22A0D694006392DE /* Main.storyboard */,
 				DFD374A022A0D695006392DE /* Assets.xcassets */,
 				DFD374A222A0D695006392DE /* LaunchScreen.storyboard */,
@@ -177,6 +218,7 @@
 				DFD3749322A0D694006392DE /* Frameworks */,
 				DFD3749422A0D694006392DE /* Resources */,
 				27B40FFA0A1BEEC16F1562CD /* [CP] Embed Pods Frameworks */,
+				DF08C82322A38AA0007A70B8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -276,6 +318,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF08C81B22A38A71007A70B8 /* AppSecrets.stencil in Resources */,
 				DFD374A422A0D695006392DE /* LaunchScreen.storyboard in Resources */,
 				DFD374A122A0D695006392DE /* Assets.xcassets in Resources */,
 				DFD3749F22A0D694006392DE /* Main.storyboard in Resources */,
@@ -355,6 +398,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DF08C82322A38AA0007A70B8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsource ./BuildConfig/env-vars.sh\n$PODS_ROOT/Sourcery/bin/sourcery --sources BuildConfig --sources Event-Validation --templates BuildConfig/AppSecrets.stencil --output Generated --args P_10=$P_TEN_VALUE\n";
+		};
 		EEDAD0E1B4FBD5A67DFE6A02 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -380,8 +440,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFD3749C22A0D694006392DE /* ViewController.swift in Sources */,
+				DF08C82222A38A8A007A70B8 /* decryption.swift in Sources */,
+				DF08C82122A38A8A007A70B8 /* structs.swift in Sources */,
+				DF08C82522A38E4D007A70B8 /* AppSecrets.generated.swift in Sources */,
+				DFD3749C22A0D694006392DE /* QRScannerPrepViewController.swift in Sources */,
 				DFD3749A22A0D694006392DE /* AppDelegate.swift in Sources */,
+				DF08C82022A38A8A007A70B8 /* functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

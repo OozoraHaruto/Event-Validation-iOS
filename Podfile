@@ -8,6 +8,7 @@ target 'Event-Validation' do
   use_frameworks!
   pod 'BigInt', '~> 4.0'
   pod 'QRCodeReader.swift', '~> 10.1.0'
+  pod 'Sourcery'
 
   # Pods for Event-Validation
 
