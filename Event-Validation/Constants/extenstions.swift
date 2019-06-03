@@ -9,7 +9,7 @@
 import Foundation
 
 // Get String at Index              = https://stackoverflow.com/questions/24092884/get-nth-character-of-a-string-in-swift-programming-language/38215613#38215613
-// String decode URL                = https://stackoverflow.com/questions/32974795/url-decode-in-ios
+// localize string                  = https://stackoverflow.com/questions/25081757/whats-nslocalizedstring-equivalent-in-swift/29384360#29384360
 
 extension StringProtocol {
     subscript(offset: Int) -> Element {
@@ -58,12 +58,10 @@ extension BidirectionalCollection {
 
 
 extension String {
-    func encodeUrl() -> String?
-    {
-        return self.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+    var localized: String {
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
     }
-    func decodeUrl() -> String?
-    {
-        return self.removingPercentEncoding
+    func localized(withComment:String) -> String {
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: withComment)
     }
 }

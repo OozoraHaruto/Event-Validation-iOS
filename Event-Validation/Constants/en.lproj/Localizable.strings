@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Event-Validation
+
+  Created by Malcolm Chew on 3/6/19.
+  Copyright © 2019 太陽のアプリ. All rights reserved.
+*/
+
+// MARK: メインページ　(QRScannerPrepViewController)
+"CAMERA_DISABLED"                               = "Please enable the camera for this application.\nSettings > Event Validator > Camera";
+"CAMERA_OK"                                     = "Please press the button\n↓↓↓";
+
+
+// MARK: 俺たちのQRコード (QRResultCorrectTableViewController)
+
+
+// MARK: 他のQRコード (QRResultOthersViewController)

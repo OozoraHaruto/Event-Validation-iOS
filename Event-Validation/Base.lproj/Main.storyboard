@@ -17,9 +17,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xH-84-n21">
-                                <rect key="frame" x="157" y="704" width="100" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LD5-UJ-a1A">
+                                <rect key="frame" x="20" y="404" width="374" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LD5-UJ-a1A" secondAttribute="height" multiplier="17:9" constant="205.88888888888889" id="lgy-wt-fAI"/>
+                                </constraints>
+                                <string key="text">このアプリケーションのカメラを有効にしてください。
+設定 &gt; イベントバリデータ &gt; カメラ</string>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xH-84-n21">
+                                <rect key="frame" x="20" y="501" width="374" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JV4-0e-fx9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Scan QR Code"/>
                                 <connections>
                                     <action selector="scanAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UoZ-hQ-P5H"/>
@@ -27,11 +41,70 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8xH-84-n21" firstAttribute="leading" secondItem="LD5-UJ-a1A" secondAttribute="leading" id="1Sf-ne-MV5"/>
+                            <constraint firstItem="LD5-UJ-a1A" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-4.5" id="7sr-oR-fRN"/>
+                            <constraint firstItem="8xH-84-n21" firstAttribute="trailing" secondItem="LD5-UJ-a1A" secondAttribute="trailing" id="UGt-TV-9aM"/>
+                            <constraint firstItem="LD5-UJ-a1A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="cZY-nT-jmt"/>
+                            <constraint firstItem="8xH-84-n21" firstAttribute="top" secondItem="LD5-UJ-a1A" secondAttribute="bottom" constant="8" id="ig3-xw-x3V"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LD5-UJ-a1A" secondAttribute="trailing" constant="20" id="tyA-vv-vl2"/>
+                            <constraint firstItem="8xH-84-n21" firstAttribute="width" secondItem="LD5-UJ-a1A" secondAttribute="width" id="uDz-IZ-koh"/>
+                            <constraint firstItem="LD5-UJ-a1A" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zrk-Ao-QFA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="btnQRScanner" destination="8xH-84-n21" id="Qa4-KD-b9C"/>
+                        <outlet property="lblInstruction" destination="LD5-UJ-a1A" id="rXD-7w-LRp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-184.05797101449278" y="96.428571428571431"/>
+        </scene>
+        <!--Result Others View Controller-->
+        <scene sceneID="20G-1g-Wnu">
+            <objects>
+                <viewController storyboardIdentifier="wrongQRVC" id="5Ul-86-lxu" customClass="QRResultOthersViewController" customModule="Event_Validation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vWV-xI-rPH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4AX-d5-xGY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jg9-1P-N7u"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wxN-li-oOz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="555" y="-223"/>
+        </scene>
+        <!--Result Correct Table View Controller-->
+        <scene sceneID="OzY-3U-uLx">
+            <objects>
+                <tableViewController storyboardIdentifier="correctQRVC" id="sbp-3E-9ud" customClass="QRResultCorrectTableViewController" customModule="Event_Validation" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mmf-gL-vqU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wtB-7z-ABt">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wtB-7z-ABt" id="NDu-gV-vvq">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sbp-3E-9ud" id="ptl-Ya-VBB"/>
+                            <outlet property="delegate" destination="sbp-3E-9ud" id="krX-q7-Rbh"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R8S-kV-KYI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="554" y="447"/>
         </scene>
     </scenes>
 </document>

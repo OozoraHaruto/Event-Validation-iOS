@@ -1,0 +1,11 @@
+/* 
+  InfoPlist.strings
+  Event-Validation
+
+  Created by Malcolm Chew on 3/6/19.
+  Copyright © 2019 太陽のアプリ. All rights reserved.
+*/
+
+"CFBundleDisplayName" = "イベントバリデータ";
+"NSHumanReadableCopyright" = "2019 Taiyo's Apps. All rights reserved.";
+"NSCameraUsageDescription" = "カメラはQRコードをスキャンするために必要です";

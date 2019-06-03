@@ -11,13 +11,20 @@ import BigInt
 
 func textToQRData(objStr: String) -> QRData{
     let decoder             = JSONDecoder()
-    let data                = try! decoder.decode(QRData.self, from: objStr.data(using: .utf8)!);
+    var data                : QRData            = QRData()
+    
+    do {
+        data                = try decoder.decode(QRData.self, from: objStr.data(using: .utf8)!);
+    }catch {
+        print("Not app QR")
+    }
+    
     return data
 }
 
 func base64ToNumber(base64: String) -> String{
-    let rixits                              = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/"
-    var result              :String         = ""
+    let rixits                                  = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/"
+    var result              :String             = ""
     
     for rixit in base64 {
         result = "\(result)\(rixits.distance(from: rixits.startIndex, to: rixits.firstIndex(of: rixit)!))"
@@ -36,8 +43,8 @@ func getSecrets(data: QRData) -> QRSecrets{
     var startIndex          :String.Index
     
     switch data.l {
-        case 10: prime = secrets.P_10.components(separatedBy: ";")[data.p]; break;
-        default: prime = secrets.P_10.components(separatedBy: ";")[data.p]; break;
+        case 10: prime      = secrets.P_10.components(separatedBy: ";")[data.p]; break;
+        default: prime      = secrets.P_10.components(separatedBy: ";")[data.p]; break;
     }
     
     startIndex              = prime.firstIndex(of: "[")!
