@@ -13,8 +13,8 @@
 		DF08C81B22A38A71007A70B8 /* AppSecrets.stencil in Resources */ = {isa = PBXBuildFile; fileRef = DF08C81722A38A2D007A70B8 /* AppSecrets.stencil */; };
 		DF08C82022A38A8A007A70B8 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C81D22A38A89007A70B8 /* functions.swift */; };
 		DF08C82122A38A8A007A70B8 /* structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C81E22A38A89007A70B8 /* structs.swift */; };
-		DF08C82222A38A8A007A70B8 /* decryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C81F22A38A89007A70B8 /* decryption.swift */; };
 		DF08C82522A38E4D007A70B8 /* AppSecrets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C82422A38AE5007A70B8 /* AppSecrets.generated.swift */; };
+		DF08C82722A3C16E007A70B8 /* extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C82622A3C16E007A70B8 /* extenstions.swift */; };
 		DFD3749A22A0D694006392DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD3749922A0D694006392DE /* AppDelegate.swift */; };
 		DFD3749C22A0D694006392DE /* QRScannerPrepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD3749B22A0D694006392DE /* QRScannerPrepViewController.swift */; };
 		DFD3749F22A0D694006392DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD3749D22A0D694006392DE /* Main.storyboard */; };
@@ -54,8 +54,8 @@
 		DF08C81822A38A2D007A70B8 /* env-vars.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "env-vars.sh"; sourceTree = "<group>"; };
 		DF08C81D22A38A89007A70B8 /* functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
 		DF08C81E22A38A89007A70B8 /* structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = structs.swift; sourceTree = "<group>"; };
-		DF08C81F22A38A89007A70B8 /* decryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = decryption.swift; sourceTree = "<group>"; };
 		DF08C82422A38AE5007A70B8 /* AppSecrets.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSecrets.generated.swift; sourceTree = "<group>"; };
+		DF08C82622A3C16E007A70B8 /* extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extenstions.swift; sourceTree = "<group>"; };
 		DFD3749622A0D694006392DE /* Event-Validation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Event-Validation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFD3749922A0D694006392DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFD3749B22A0D694006392DE /* QRScannerPrepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerPrepViewController.swift; sourceTree = "<group>"; };
@@ -143,9 +143,9 @@
 		DF08C81C22A38A79007A70B8 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				DF08C81F22A38A89007A70B8 /* decryption.swift */,
 				DF08C81D22A38A89007A70B8 /* functions.swift */,
 				DF08C81E22A38A89007A70B8 /* structs.swift */,
+				DF08C82622A3C16E007A70B8 /* extenstions.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -440,9 +440,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF08C82222A38A8A007A70B8 /* decryption.swift in Sources */,
 				DF08C82122A38A8A007A70B8 /* structs.swift in Sources */,
 				DF08C82522A38E4D007A70B8 /* AppSecrets.generated.swift in Sources */,
+				DF08C82722A3C16E007A70B8 /* extenstions.swift in Sources */,
 				DFD3749C22A0D694006392DE /* QRScannerPrepViewController.swift in Sources */,
 				DFD3749A22A0D694006392DE /* AppDelegate.swift in Sources */,
 				DF08C82022A38A8A007A70B8 /* functions.swift in Sources */,

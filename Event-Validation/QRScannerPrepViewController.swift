@@ -41,8 +41,9 @@ class QRScannerPrepViewController: UIViewController, QRCodeReaderViewControllerD
         
         // Or by using the closure pattern
         readerVC.completionBlock = { (result: QRCodeReaderResult?) in
-            print(result)
-            textToJson(objStr: result!.value)
+            let data    = textToQRData(objStr: result!.value)
+            let secrets = getSecrets(data: data)
+            print(decryptData(cipherText: data.e, secrets: secrets, primeLength: data.l))
         }
         
         // Presents the readerVC as modal form sheet
