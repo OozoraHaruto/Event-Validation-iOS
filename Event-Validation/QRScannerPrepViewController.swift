@@ -17,7 +17,7 @@ class QRScannerPrepViewController: UIViewController, QRCodeReaderViewControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-                
+        
         if (!QRCodeReader.isAvailable()){
             lblInstruction.text         = "CAMERA_DISABLED".localized
         }else{
@@ -57,9 +57,9 @@ class QRScannerPrepViewController: UIViewController, QRCodeReaderViewControllerD
         
         reader.stopScanning()
         if (data.e != ""){
-            VC                                                          = self.storyboard?.instantiateViewController(withIdentifier: SID_CORRECT_QR) as! QRResultCorrectTableViewController
-            (VC as! QRResultCorrectTableViewController).qrData          = data
-            (VC as! QRResultCorrectTableViewController).qrSecrets       = getSecrets(data: data)
+            VC                                                          = self.storyboard?.instantiateViewController(withIdentifier: SID_CORRECT_QR) as! QRResultCorrectViewController
+            (VC as! QRResultCorrectViewController).qrData               = data
+            (VC as! QRResultCorrectViewController).qrSecrets            = getSecrets(data: data)
         }else{
             VC                                                          = self.storyboard?.instantiateViewController(withIdentifier: SID_WRONG_QR) as! QRResultOthersViewController
             (VC as! QRResultOthersViewController).qrData                = result.value

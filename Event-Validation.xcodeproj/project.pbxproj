@@ -13,13 +13,13 @@
 		DF08C81B22A38A71007A70B8 /* AppSecrets.stencil in Resources */ = {isa = PBXBuildFile; fileRef = DF08C81722A38A2D007A70B8 /* AppSecrets.stencil */; };
 		DF08C82022A38A8A007A70B8 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C81D22A38A89007A70B8 /* functions.swift */; };
 		DF08C82122A38A8A007A70B8 /* structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C81E22A38A89007A70B8 /* structs.swift */; };
-		DF08C82522A38E4D007A70B8 /* AppSecrets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C82422A38AE5007A70B8 /* AppSecrets.generated.swift */; };
 		DF08C82722A3C16E007A70B8 /* extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF08C82622A3C16E007A70B8 /* extenstions.swift */; };
 		DF282AE822A508B200D78556 /* QRResultCorrectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF282AE722A508B200D78556 /* QRResultCorrectTableViewController.swift */; };
 		DF282AEA22A5090100D78556 /* QRResultOthersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF282AE922A5090100D78556 /* QRResultOthersViewController.swift */; };
 		DF282B0722A5157E00D78556 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DF282B0922A5157E00D78556 /* InfoPlist.strings */; };
 		DF282B0D22A5191800D78556 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DF282B0F22A5191800D78556 /* Localizable.strings */; };
 		DF282B1222A51FC600D78556 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF282B1122A51FC600D78556 /* constants.swift */; };
+		DF2AD62122A7D60300F43386 /* AppSecrets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2AD62022A7D60300F43386 /* AppSecrets.generated.swift */; };
 		DFD3749A22A0D694006392DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD3749922A0D694006392DE /* AppDelegate.swift */; };
 		DFD3749C22A0D694006392DE /* QRScannerPrepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD3749B22A0D694006392DE /* QRScannerPrepViewController.swift */; };
 		DFD3749F22A0D694006392DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD3749D22A0D694006392DE /* Main.storyboard */; };
@@ -59,7 +59,6 @@
 		DF08C81822A38A2D007A70B8 /* env-vars.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "env-vars.sh"; sourceTree = "<group>"; };
 		DF08C81D22A38A89007A70B8 /* functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
 		DF08C81E22A38A89007A70B8 /* structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = structs.swift; sourceTree = "<group>"; };
-		DF08C82422A38AE5007A70B8 /* AppSecrets.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSecrets.generated.swift; sourceTree = "<group>"; };
 		DF08C82622A3C16E007A70B8 /* extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extenstions.swift; sourceTree = "<group>"; };
 		DF282AE722A508B200D78556 /* QRResultCorrectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRResultCorrectTableViewController.swift; sourceTree = "<group>"; };
 		DF282AE922A5090100D78556 /* QRResultOthersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRResultOthersViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +72,7 @@
 		DF282B0E22A5191800D78556 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DF282B1022A5191D00D78556 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DF282B1122A51FC600D78556 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		DF2AD62022A7D60300F43386 /* AppSecrets.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSecrets.generated.swift; sourceTree = "<group>"; };
 		DFD3749622A0D694006392DE /* Event-Validation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Event-Validation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFD3749922A0D694006392DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFD3749B22A0D694006392DE /* QRScannerPrepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerPrepViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		DF08C81522A389DE007A70B8 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				DF08C82422A38AE5007A70B8 /* AppSecrets.generated.swift */,
+				DF2AD62022A7D60300F43386 /* AppSecrets.generated.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -437,7 +437,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsource ./BuildConfig/env-vars.sh\n$PODS_ROOT/Sourcery/bin/sourcery --sources BuildConfig --sources Event-Validation --templates BuildConfig/AppSecrets.stencil --output Generated --args P_10=$P_TEN_VALUE\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsource ./BuildConfig/env-vars.sh\n#$PODS_ROOT/Sourcery/bin/sourcery --sources BuildConfig --sources Event-Validation --templates BuildConfig/AppSecrets.stencil --output Generated --args P_10=$P_TEN_VALUE\n./Pods/Sourcery/bin/sourcery --sources BuildConfig --sources Event-Validation --templates BuildConfig/AppSecrets.stencil --output Generated --args P_10=$P_TEN_VALUE\n";
 		};
 		EEDAD0E1B4FBD5A67DFE6A02 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -465,8 +465,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF08C82122A38A8A007A70B8 /* structs.swift in Sources */,
-				DF08C82522A38E4D007A70B8 /* AppSecrets.generated.swift in Sources */,
 				DF282B1222A51FC600D78556 /* constants.swift in Sources */,
+				DF2AD62122A7D60300F43386 /* AppSecrets.generated.swift in Sources */,
 				DF08C82722A3C16E007A70B8 /* extenstions.swift in Sources */,
 				DFD3749C22A0D694006392DE /* QRScannerPrepViewController.swift in Sources */,
 				DFD3749A22A0D694006392DE /* AppDelegate.swift in Sources */,

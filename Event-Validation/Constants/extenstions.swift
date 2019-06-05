@@ -10,6 +10,8 @@ import Foundation
 
 // Get String at Index              = https://stackoverflow.com/questions/24092884/get-nth-character-of-a-string-in-swift-programming-language/38215613#38215613
 // localize string                  = https://stackoverflow.com/questions/25081757/whats-nslocalizedstring-equivalent-in-swift/29384360#29384360
+// Check date In Between            = https://stackoverflow.com/questions/32859569/check-if-date-falls-between-2-dates/40057117#40057117
+// Date setting and getting         = https://stackoverflow.com/a/52855320
 
 extension StringProtocol {
     subscript(offset: Int) -> Element {
@@ -63,5 +65,30 @@ extension String {
     }
     func localized(withComment:String) -> String {
         return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: withComment)
+    }
+    func toDate(withFormat format: String) -> Date{
+        let dateFormatter               = DateFormatter()
+        dateFormatter.timeZone          = .current
+        dateFormatter.locale            = .current
+        dateFormatter.calendar          = Calendar(identifier: .gregorian)
+        dateFormatter.dateFormat        = format
+        
+        return dateFormatter.date(from: self)!
+    }
+}
+
+
+extension Date {
+    func isBetween(_ date1: Date, and date2: Date) -> Bool {
+        return (min(date1, date2) ... max(date1, date2)).contains(self)
+    }
+    func  toString(withFormat format: String) -> String {
+        let dateFormatter               = DateFormatter()
+        dateFormatter.timeZone          = .current
+        dateFormatter.locale            = .current
+        dateFormatter.calendar          = Calendar(identifier: .gregorian)
+        dateFormatter.dateFormat        = format
+        
+        return dateFormatter.string(from: self)
     }
 }

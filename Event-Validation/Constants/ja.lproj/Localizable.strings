@@ -12,6 +12,14 @@
 
 
 // MARK: 俺たちのQRコード (QRResultCorrectTableViewController)
+"EVENT_DETAILS"                                 = "イベントの詳細";
+"DATE_DURATION"                                 = "期間";
+"DATE_LIST"                                     = "日付リスト";
+"EVENT_HAPPENING_NOW"                           = "イベントは進行中です";
+"EVENT_NOT_HAPPENING_NOW"                       = "イベントは進行中ではありません";
+"WEBSITE"                                       = "ウェブサイト";
+"FROM"                                          = "から";
+"To"                                            = "まで";
 
 
 // MARK: 他のQRコード (QRResultOthersViewController)

@@ -8,85 +8,139 @@
 
 import UIKit
 
-class QRResultCorrectTableViewController: UITableViewController {
-    var qrData                  :QRData                 = QRData();
-    var qrSecrets               :QRSecrets              = QRSecrets()
-
+class QRResultCorrectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var lblEventName     : UILabel!
+    @IBOutlet weak var lblEventStatus   : UILabel!
+    @IBOutlet weak var tblEventDetails  : UITableView!
+    
+    var language                        :String                 = NSLocale.current.languageCode!
+    var qrData                          :QRData                 = QRData();
+    var qrSecrets                       :QRSecrets              = QRSecrets()
+    var tableSectionsTitle              :[String]               = []
+    var tableData                       :[[String]]             = []
+    var dateTypeUsed                    :dateType               = .list
+    var datePrintFormat                 :String                 = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        switch language {
+        case "ja":
+            datePrintFormat                                 = DFT_PRINTING_FORMAT_JA
+        case "zh":
+            datePrintFormat                                 = DFT_PRINTING_FORMAT_JA
+        default:
+            datePrintFormat                                 = DFT_PRINTING_FORMAT_DEFAULT
+        }
+        
+        let btnDone = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissViewController))
+        self.navigationItem.rightBarButtonItem                  = btnDone
+        tblEventDetails.dataSource                              = self
+        tblEventDetails.delegate                                = self
+        self.title                                              = "EVENT_DETAILS".localized
+        
+        lblEventName.text                                       = decryptData(cipherText: qrData.e, secrets: qrSecrets, primeLength: qrData.l)
+        
+        let dates                                               = decryptData(cipherText: qrData.d, secrets: qrSecrets, primeLength: qrData.l)
+        if(dates != ""){
+            var eventHappeningNow       :Bool                   = false
+            var tmpData                 :[String]               = []
+            
+            if (dates.firstIndex(of: "-") != nil){ //TEST: Date not in range
+                tableSectionsTitle.append("DATE_DURATION".localized)
+                dateTypeUsed                                    = .range
+                tmpData                                         = dates.components(separatedBy: "-")
+                eventHappeningNow                               = Date().isBetween(tmpData[0].toDate(withFormat: DFT_INITIAL_FORMAT), and: tmpData[1].toDate(withFormat: DFT_INITIAL_FORMAT))
+            }else{// TEST: Date in list
+                tableSectionsTitle.append("DATE_LIST".localized)
+                dateTypeUsed                                    = .list
+                tmpData                                         = dates.components(separatedBy: ",")
+                for strDate in tmpData {
+                    if (strDate.toDate(withFormat: DFT_INITIAL_FORMAT) == Date()){
+                        eventHappeningNow                       = true
+                        break;
+                    }
+                }
+            }
+            tableData.append(tmpData)
+            
+            if(eventHappeningNow == true){
+                lblEventStatus.text                             = "EVENT_HAPPENING_NOW".localized
+                lblEventStatus.textColor                        = .green
+            }else{
+                lblEventStatus.text                             = "EVENT_NOT_HAPPENING_NOW".localized
+                lblEventStatus.textColor                        = .red
+            }
+        }
+        if (qrData.w != ""){ //ADDON: Popover webpage when clicked
+            tableSectionsTitle.append("WEBSITE".localized)
+            tableData.append([decryptData(cipherText: qrData.w, secrets: qrSecrets, primeLength: qrData.l)])
+        }
     }
-
+    
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return tableSectionsTitle.count
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableData[section].count
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return tableSectionsTitle[section]
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell                                                = UITableViewCell();
+        let rowData                                             = tableData[indexPath.section][indexPath.row]
+        
+        if (rowData.range(of: RGX_DATE, options: .regularExpression, range: nil, locale: nil) != nil){
+            var lblDate                 :UILabel                = UILabel()
+            
+            switch dateTypeUsed {
+            case .range:
+                cell                                        = tblEventDetails.dequeueReusableCell(withIdentifier: RIDLeftDetail, for: indexPath)
+                let lblLabel        :UILabel                = cell.viewWithTag(1) as! UILabel
+                lblDate                                     = cell.viewWithTag(2) as! UILabel
+                
+                lblLabel.text                               = (indexPath.row == 0) ? "FROM".localized : "TO".localized
+                break;
+            case .list:
+                cell                                        = tblEventDetails.dequeueReusableCell(withIdentifier: RIDBasic, for: indexPath)
+                lblDate                                     = cell.viewWithTag(1) as! UILabel
+                
+                cell.isUserInteractionEnabled               = true
+            }
+            
+            lblDate.text                                        = rowData.toDate(withFormat: DFT_INITIAL_FORMAT).toString(withFormat: datePrintFormat)
+        }else if(rowData.range(of: RGX_WEBSITE, options: .regularExpression, range: nil, locale: nil) != nil){
+            cell                                                = tblEventDetails.dequeueReusableCell(withIdentifier: RIDBasic, for: indexPath)
+            let lblWebsite          :UILabel                    = cell.viewWithTag(1) as! UILabel
+            
+            cell.isUserInteractionEnabled                       = true
+            lblWebsite.text                                     = rowData
+        }
+        
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    
+    // MARK: - Button Action
+    @objc func dismissViewController(){
+        dismiss(animated: true, completion: nil)
     }
-    */
-
+    
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

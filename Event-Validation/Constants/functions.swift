@@ -43,8 +43,8 @@ func getSecrets(data: QRData) -> QRSecrets{
     var startIndex          :String.Index
     
     switch data.l {
-        case 10: prime      = secrets.P_10.components(separatedBy: ";")[data.p]; break;
-        default: prime      = secrets.P_10.components(separatedBy: ";")[data.p]; break;
+    case 10: prime      = secrets.P_10.components(separatedBy: ";")[data.p]; break;
+    default: prime      = secrets.P_10.components(separatedBy: ";")[data.p]; break;
     }
     
     startIndex              = prime.firstIndex(of: "[")!
