@@ -46,17 +46,17 @@ class QRResultCorrectViewController: UIViewController, UITableViewDelegate, UITa
             var eventHappeningNow       :Bool                   = false
             var tmpData                 :[String]               = []
             
-            if (dates.firstIndex(of: "-") != nil){ //TEST: Date not in range
+            if (dates.firstIndex(of: "-") != nil){
                 tableSectionsTitle.append("DATE_DURATION".localized)
                 dateTypeUsed                                    = .range
                 tmpData                                         = dates.components(separatedBy: "-")
                 eventHappeningNow                               = Date().isBetween(tmpData[0].toDate(withFormat: DFT_INITIAL_FORMAT), and: tmpData[1].toDate(withFormat: DFT_INITIAL_FORMAT))
-            }else{// TEST: Date in list
+            }else{
                 tableSectionsTitle.append("DATE_LIST".localized)
                 dateTypeUsed                                    = .list
                 tmpData                                         = dates.components(separatedBy: ",")
                 for strDate in tmpData {
-                    if (strDate.toDate(withFormat: DFT_INITIAL_FORMAT) == Date()){
+                    if (strDate.toDate(withFormat: DFT_INITIAL_FORMAT).toString(withFormat: DFT_PRINTING_FORMAT_DEFAULT) == Date().toString(withFormat: DFT_PRINTING_FORMAT_DEFAULT)){
                         eventHappeningNow                       = true
                         break;
                     }
