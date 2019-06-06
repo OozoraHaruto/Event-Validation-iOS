@@ -23,3 +23,18 @@
 
 
 // MARK: 他のQRコード (QRResultOthersViewController)
+"OPENING"                                       = "このアプリは通常のQRコードをスキャンするためのものではありません。";
+"SUPPORTED"                                     = "リンクをクリックするだけです。さよなら〜";
+"NOT_SUPPORTED"                                 = "申し訳ありませんが、テキストボックスはこのデータに大いに役立つことができません";
+"PARTIAL_SUPPORT"                               = "これが私が手助けできるすべてです。 それが価値があるもののためにリンクをクリックしてください";
+
+"SNIDE_COMMENT_WEBSITE"                         = "うわー...ポルノ？";
+"SNIDE_COMMENT_VCARD"                           = "これは誰のです？ 彼女？";
+"SNIDE_COMMENT_VEVENT"                          = "ミスターポピュラー〜";
+"SNIDE_COMMENT_MECARD"                          = "これは誰のです？ 彼氏？";
+"SNIDE_COMMENT_PHONE"                           = "これは誰の数ですか？ あなたは好きな女の子？";
+"SNIDE_COMMENT_SMS"                             = "あなたは誰にメッセージを送りますか？ 面白い...";
+"SNIDE_COMMENT_EMAIL"                           = "メール？ 代わりに手紙を書きたいですか？";
+"SNIDE_COMMENT_WIFI"                            = "Wi-Fi？ 本当に？ iPhoneはこの機能をサポートしていません";
+"SNIDE_COMMENT_BITCOIN"                         = "うあああ！ あなたは金持ちでなければなりません！";
+"SNIDE_COMMENT_DUNNO"                           = "あなたは勝ちます。 これが何であるかわかりません";

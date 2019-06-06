@@ -36,7 +36,7 @@ class QRScannerPrepViewController: UIViewController, QRCodeReaderViewControllerD
             $0.showSwitchCameraButton   = false
             $0.showCancelButton         = true
             $0.showOverlayView          = true
-            $0.rectOfInterest           = CGRect(x: 0.2, y: 0.2, width: 0.6, height: 0.6)
+            $0.rectOfInterest           = CGRect(x: 0.1, y: 0.1, width: 0.8, height: 0.8)
         }
         
         return QRCodeReaderViewController(builder: builder)

@@ -21,4 +21,20 @@
 "FROM"                                          = "From";
 "To"                                            = "To";
 
+
 // MARK: 他のQRコード (QRResultOthersViewController)
+"OPENING"                                       = "This app is not meant to scan normal QR Codes.";
+"SUPPORTED"                                     = "Just click the link... bye~";
+"NOT_SUPPORTED"                                 = "Sorry the textbox won't be able to help much for this data";
+"PARTIAL_SUPPORT"                               = "This is all I can help. Click the link for what it is worth";
+
+"SNIDE_COMMENT_WEBSITE"                         = "Wow... Porn?";
+"SNIDE_COMMENT_VCARD"                           = "Whose is this? Girlfriend?";
+"SNIDE_COMMENT_VEVENT"                          = "Mr. Popular~";
+"SNIDE_COMMENT_MECARD"                          = "Whose is this? Boyfriend?";
+"SNIDE_COMMENT_PHONE"                           = "Whose number is this? Girl you like?";
+"SNIDE_COMMENT_SMS"                             = "Who you messaging? Interesting...";
+"SNIDE_COMMENT_EMAIL"                           = "E-mail? Want to write a letter instead?";
+"SNIDE_COMMENT_WIFI"                            = "WiFi? Really? iPhone don't support this function dude";
+"SNIDE_COMMENT_BITCOIN"                         = "Woah! You must be rich!";
+"SNIDE_COMMENT_DUNNO"                           = "You win. I have no idea what this is";
