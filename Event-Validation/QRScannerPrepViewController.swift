@@ -16,7 +16,6 @@ class QRScannerPrepViewController: UIViewController, QRCodeReaderViewControllerD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         if (!QRCodeReader.isAvailable()){
             lblInstruction.text         = "CAMERA_DISABLED".localized
@@ -68,14 +67,6 @@ class QRScannerPrepViewController: UIViewController, QRCodeReaderViewControllerD
         dismiss(animated: true, completion: nil)
         self.present(UINavigationController(rootViewController: VC), animated: true, completion: nil)
     }
-    
-    //This is an optional delegate method, that allows you to be notified when the user switches the cameraName
-    //By pressing on the switch camera button
-    //    func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
-    //        if let cameraName = newCaptureDevice.device.localizedName {
-    //            print("Switching capture to: \(cameraName)")
-    //        }
-    //    }
     
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
         reader.stopScanning()

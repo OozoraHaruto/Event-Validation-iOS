@@ -72,7 +72,7 @@ class QRResultCorrectViewController: UIViewController, UITableViewDelegate, UITa
                 lblEventStatus.textColor                        = .red
             }
         }
-        if (qrData.w != ""){ //ADDON: Popover webpage when clicked
+        if (qrData.w != ""){
             tableSectionsTitle.append("WEBSITE".localized)
             tableData.append([decryptData(cipherText: qrData.w, secrets: qrSecrets, primeLength: qrData.l)])
         }
@@ -125,6 +125,17 @@ class QRResultCorrectViewController: UIViewController, UITableViewDelegate, UITa
         
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var VC                                                  = UIViewController()
+        if (tableSectionsTitle[indexPath.section] == "WEBSITE".localized){
+            VC                                                  = self.storyboard?.instantiateViewController(withIdentifier: SID_WEBVIEW) as! WebViewController
+            (VC as! WebViewController).webURL                   = tableData[indexPath.section][indexPath.row]
+        }
+        tblEventDetails.deselectRow(at: indexPath, animated: true);
+        self.navigationController?.pushViewController(VC, animated: true);
+        
     }
     
     

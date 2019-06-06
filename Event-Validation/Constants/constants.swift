@@ -21,6 +21,7 @@ let RIDLeftDetail                                                       = "LeftD
 // MARK: StoryboardID's
 let SID_CORRECT_QR                                                      = "correctQRVC"
 let SID_WRONG_QR                                                        = "wrongQRVC"
+let SID_WEBVIEW                                                         = "webVC"
 
 
 // MARK: QRResultCorrectViewController
