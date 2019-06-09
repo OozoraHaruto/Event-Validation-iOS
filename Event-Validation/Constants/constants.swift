@@ -10,7 +10,7 @@ import Foundation
 
 //MARK: Regex
 let RGX_WEBSITE                                                         = #"^(http:/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"#
-let RGX_DATE                                                            = #"^([0-9]{1,2})\/([0-9]{1,2})\/([0-9]{4})$"#
+let RGX_DATE                                                            = #"^([0-9]{4})\/([0-9]{1,2})\/([0-9]{1,2})$"#
 
 
 //MARK: TableViewCell Default
@@ -28,6 +28,6 @@ let SID_WEBVIEW                                                         = "webVC
 enum dateType{
     case range, list
 }
-let DFT_INITIAL_FORMAT                                                  = "dd/MM/yyyy"
+let DFT_INITIAL_FORMAT                                                  = "yyyy/MM/dd"
 let DFT_PRINTING_FORMAT_DEFAULT                                         = "EEEE, dd MMMM yyyy"
 let DFT_PRINTING_FORMAT_JA                                              = "EEEE, MM月dd日yyyy年"

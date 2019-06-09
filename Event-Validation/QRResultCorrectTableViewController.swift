@@ -45,7 +45,6 @@ class QRResultCorrectViewController: UIViewController, UITableViewDelegate, UITa
         if(dates != ""){
             var eventHappeningNow       :Bool                   = false
             var tmpData                 :[String]               = []
-            
             if (dates.firstIndex(of: "-") != nil){
                 tableSectionsTitle.append("DATE_DURATION".localized)
                 dateTypeUsed                                    = .range
@@ -54,7 +53,8 @@ class QRResultCorrectViewController: UIViewController, UITableViewDelegate, UITa
             }else{
                 tableSectionsTitle.append("DATE_LIST".localized)
                 dateTypeUsed                                    = .list
-                tmpData                                         = dates.components(separatedBy: ",")
+                tmpData                                         = dates.firstIndex(of: ",") != nil ? dates.components(separatedBy: ",") : [dates]
+                print(tmpData[0])
                 for strDate in tmpData {
                     if (strDate.toDate(withFormat: DFT_INITIAL_FORMAT).toString(withFormat: DFT_PRINTING_FORMAT_DEFAULT) == Date().toString(withFormat: DFT_PRINTING_FORMAT_DEFAULT)){
                         eventHappeningNow                       = true
@@ -115,7 +115,7 @@ class QRResultCorrectViewController: UIViewController, UITableViewDelegate, UITa
             }
             
             lblDate.text                                        = rowData.toDate(withFormat: DFT_INITIAL_FORMAT).toString(withFormat: datePrintFormat)
-        }else if(rowData.range(of: RGX_WEBSITE, options: .regularExpression, range: nil, locale: nil) != nil){
+        }else if(tableSectionsTitle[indexPath.section] == "WEBSITE".localized){
             cell                                                = tblEventDetails.dequeueReusableCell(withIdentifier: RIDBasic, for: indexPath)
             let lblWebsite          :UILabel                    = cell.viewWithTag(1) as! UILabel
             
