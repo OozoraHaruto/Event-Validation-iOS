@@ -24,16 +24,16 @@ struct QRData: Codable{
     
     init(){}
     init(name: String, date: String, website: String, version: Double, primeLength: Int, generator: Int, primeIndex: Int, publicKey: String, privateIndex: Int, hash: String){
-        e                   = name
-        d                   = date
-        w                   = website
-        v                   = version
-        l                   = primeIndex
-        g                   = generator
-        p                   = primeIndex
-        y                   = publicKey
-        k                   = privateIndex
-        h                   = hash
+        e                                           = name
+        d                                           = date
+        w                                           = website
+        v                                           = version
+        l                                           = primeIndex
+        g                                           = generator
+        p                                           = primeIndex
+        y                                           = publicKey
+        k                                           = privateIndex
+        h                                           = hash
     }
 }
 
@@ -46,11 +46,11 @@ struct QRSecrets{
     
     init(){}
     init(prime: String, generator: String, publicKey: String, privateKey: String){
-        p                   = BigInt(prime)!
-        g                   = BigInt(generator)!
-        y                   = BigInt(publicKey)!
-        k                   = BigInt(privateKey)!
-        s                   = calculateSharedKey(privateKey: k, publicKey: y, prime: p)
+        p                                           = BigInt(prime)!
+        g                                           = BigInt(generator)!
+        y                                           = BigInt(publicKey)!
+        k                                           = BigInt(privateKey)!
+        s                                           = calculateSharedKey(privateKey: k, publicKey: y, prime: p)
     }
     
 }

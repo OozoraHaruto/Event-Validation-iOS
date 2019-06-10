@@ -43,21 +43,21 @@ func getSecrets(data: QRData) -> QRSecrets{
     var startIndex          :String.Index
     
     switch data.l {
-    case 10: prime      = secrets.P_10.components(separatedBy: ";")[data.p]; break;
-    default: prime      = secrets.P_10.components(separatedBy: ";")[data.p]; break;
+        case 10: prime                          = secrets.P_10.components(separatedBy: ";")[data.p]; break;
+        default: prime                          = secrets.P_10.components(separatedBy: ";")[data.p]; break;
     }
     
-    startIndex              = prime.firstIndex(of: "[")!
-    generator               = String(prime.suffix(from: startIndex))
-    generator               = generator.replacingOccurrences(of: "[\\[\\]]", with: "", options: .regularExpression)
-    generator               = generator.components(separatedBy: ")")[data.g]
-    prime                   = String(prime.prefix(upTo: startIndex))
+    startIndex                                  = prime.firstIndex(of: "[")!
+    generator                                   = String(prime.suffix(from: startIndex))
+    generator                                   = generator.replacingOccurrences(of: "[\\[\\]]", with: "", options: .regularExpression)
+    generator                                   = generator.components(separatedBy: ")")[data.g]
+    prime                                       = String(prime.prefix(upTo: startIndex))
     
-    startIndex              = generator.firstIndex(of: "(")!
-    privateKey              = String(generator.suffix(from: startIndex))
-    privateKey              = privateKey.replacingOccurrences(of: "(", with: "")
-    privateKey              = privateKey.components(separatedBy: ",")[data.k]
-    generator               = String(generator.prefix(upTo: startIndex))
+    startIndex                                  = generator.firstIndex(of: "(")!
+    privateKey                                  = String(generator.suffix(from: startIndex))
+    privateKey                                  = privateKey.replacingOccurrences(of: "(", with: "")
+    privateKey                                  = privateKey.components(separatedBy: ",")[data.k]
+    generator                                   = String(generator.prefix(upTo: startIndex))
     
     return QRSecrets(prime: prime, generator: generator, publicKey: data.y, privateKey: privateKey);
 }
@@ -76,19 +76,19 @@ func decryptData(cipherText: String, secrets: QRSecrets, primeLength: Int) -> St
     var counter             :Int                = 0
     
     for encryptedPart in encryptedParts {
-        var tmp             = base64ToNumber(base64: encryptedPart)
-        var tmpNo           = BigInt(tmp)!
-        tmpNo               = tmpNo * secrets.s.inverse(secrets.p)!
-        tmpNo               = tmpNo % secrets.p
-        tmp                 = String(tmpNo)
+        var tmp                                 = base64ToNumber(base64: encryptedPart)
+        var tmpNo                               = BigInt(tmp)!
+        tmpNo                                   = tmpNo * secrets.s.inverse(secrets.p)!
+        tmpNo                                   = tmpNo % secrets.p
+        tmp                                     = String(tmpNo)
         
-        let stringLength    = (counter == lastIndex ? lastPartLength : mLength)
+        let stringLength                        = (counter == lastIndex ? lastPartLength : mLength)
         
         while(tmp.count < stringLength){
-            tmp             = "0\(tmp)"
+            tmp                                 = "0\(tmp)"
         }
-        decryptedString     = "\(decryptedString)\(tmp)"
-        counter            += 1
+        decryptedString                         = "\(decryptedString)\(tmp)"
+        counter                                += 1
     }
     
     return decodeText(data: decryptedString)
@@ -99,9 +99,9 @@ func decodeText(data: String) -> String{ //decimal -> Hex -> ASCII
     var i                   :Int                = 0
     
     while(i < data.count){
-        let text            = "\(String(format:"%x", Int("\(data[(i)])\(data[(i+1)])")!))\(String(format:"%x", Int("\(data[(i+2)])\(data[(i+3)])")!))"
-        str                 = "\(str)\(Character(UnicodeScalar(UInt32(text, radix: 16)!)!))"
-        i                  += 4
+        let text                                = "\(String(format:"%x", Int("\(data[(i)])\(data[(i+1)])")!))\(String(format:"%x", Int("\(data[(i+2)])\(data[(i+3)])")!))"
+        str                                     = "\(str)\(Character(UnicodeScalar(UInt32(text, radix: 16)!)!))"
+        i                                      += 4
     }
     str = str.removingPercentEncoding!
     

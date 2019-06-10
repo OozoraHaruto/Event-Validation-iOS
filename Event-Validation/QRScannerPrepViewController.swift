@@ -18,10 +18,10 @@ class QRScannerPrepViewController: UIViewController, QRCodeReaderViewControllerD
         super.viewDidLoad()
         
         if (!QRCodeReader.isAvailable()){
-            lblInstruction.text         = "CAMERA_DISABLED".localized
+            lblInstruction.text                                         = "CAMERA_DISABLED".localized
         }else{
-            lblInstruction.text         = "CAMERA_OK".localized
-            btnQRScanner.isEnabled      = true
+            lblInstruction.text                                         = "CAMERA_OK".localized
+            btnQRScanner.isEnabled                                      = true
         }
     }
     
@@ -32,11 +32,11 @@ class QRScannerPrepViewController: UIViewController, QRCodeReaderViewControllerD
             $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
             
             // Configure the view controller (optional)
-            $0.showTorchButton          = true
-            $0.showSwitchCameraButton   = false
-            $0.showCancelButton         = true
-            $0.showOverlayView          = true
-            $0.rectOfInterest           = CGRect(x: 0.1, y: 0.1, width: 0.8, height: 0.8)
+            $0.showTorchButton                                          = true
+            $0.showSwitchCameraButton                                   = false
+            $0.showCancelButton                                         = true
+            $0.showOverlayView                                          = true
+            $0.rectOfInterest                                           = CGRect(x: 0.1, y: 0.1, width: 0.8, height: 0.8)
         }
         
         return QRCodeReaderViewController(builder: builder)

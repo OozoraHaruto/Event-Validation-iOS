@@ -25,12 +25,12 @@ class QRResultCorrectViewController: UIViewController, UITableViewDelegate, UITa
         super.viewDidLoad()
         
         switch language {
-        case "ja":
-            datePrintFormat                                 = DFT_PRINTING_FORMAT_JA
-        case "zh":
-            datePrintFormat                                 = DFT_PRINTING_FORMAT_JA
-        default:
-            datePrintFormat                                 = DFT_PRINTING_FORMAT_DEFAULT
+            case "ja":
+                datePrintFormat                                 = DFT_PRINTING_FORMAT_JA
+            case "zh":
+                datePrintFormat                                 = DFT_PRINTING_FORMAT_JA
+            default:
+                datePrintFormat                                 = DFT_PRINTING_FORMAT_DEFAULT
         }
         
         let btnDone = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissViewController))
@@ -100,18 +100,18 @@ class QRResultCorrectViewController: UIViewController, UITableViewDelegate, UITa
             var lblDate                 :UILabel                = UILabel()
             
             switch dateTypeUsed {
-            case .range:
-                cell                                        = tblEventDetails.dequeueReusableCell(withIdentifier: RIDLeftDetail, for: indexPath)
-                let lblLabel        :UILabel                = cell.viewWithTag(1) as! UILabel
-                lblDate                                     = cell.viewWithTag(2) as! UILabel
-                
-                lblLabel.text                               = (indexPath.row == 0) ? "FROM".localized : "TO".localized
-                break;
-            case .list:
-                cell                                        = tblEventDetails.dequeueReusableCell(withIdentifier: RIDBasic, for: indexPath)
-                lblDate                                     = cell.viewWithTag(1) as! UILabel
-                
-                cell.isUserInteractionEnabled               = true
+                case .range:
+                    cell                                        = tblEventDetails.dequeueReusableCell(withIdentifier: RIDLeftDetail, for: indexPath)
+                    let lblLabel        :UILabel                = cell.viewWithTag(1) as! UILabel
+                    lblDate                                     = cell.viewWithTag(2) as! UILabel
+                    
+                    lblLabel.text                               = (indexPath.row == 0) ? "FROM".localized : "TO".localized
+                    break;
+                case .list:
+                    cell                                        = tblEventDetails.dequeueReusableCell(withIdentifier: RIDBasic, for: indexPath)
+                    lblDate                                     = cell.viewWithTag(1) as! UILabel
+                    
+                    cell.isUserInteractionEnabled               = true
             }
             
             lblDate.text                                        = rowData.toDate(withFormat: DFT_INITIAL_FORMAT).toString(withFormat: datePrintFormat)
