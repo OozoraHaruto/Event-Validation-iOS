@@ -19,7 +19,7 @@
 "EVENT_NOT_HAPPENING_NOW"                       = "イベントは進行中ではありません";
 "WEBSITE"                                       = "ウェブサイト";
 "FROM"                                          = "から";
-"To"                                            = "まで";
+"TO"                                            = "まで";
 
 
 // MARK: 他のQRコード (QRResultOthersViewController)
